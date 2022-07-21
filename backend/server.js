@@ -1,0 +1,37 @@
+const cloudinary = require("cloudinary");
+
+if (process.env.NODE_ENV !== "PRODUCTION") {
+  require("dotenv").config({ path: "backend/config/config.env" });
+}
+
+process.on("uncaughtException", (err) => {
+  console.log("UNCAUGHT EXCEPTION! Shutting down...");
+  console.log(
+    `Error Name: ${err.name}\nError Message: ${err.message} \n ${err}`
+  );
+  process.exit(1);
+});
+
+const app = require("./app");
+const { connectToDataBase } = require("./config/database");
+
+// connecting to data base
+connectToDataBase();
+cloudinary.config({
+  cloud_name: process.env.CLODINARY_NAME,
+  api_key: process.env.CLODINARY_API_KEY,
+  api_secret: process.env.CLODINARY_API_SECRET,
+});
+
+const port = process.env.PORT || 8000;
+app.listen(port, () => {
+  console.log(`Server is listening at port ${port}`);
+});
+
+process.on("unhandledRejection", (err) => {
+  console.log("UNHANDELED REJECTION! Shutting down...");
+  console.log(`Error Name: ${err.name}\nError Message: ${err.message}`);
+  server.close(() => {
+    process.exit(1);
+  });
+});
