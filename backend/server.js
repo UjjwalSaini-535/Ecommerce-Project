@@ -1,8 +1,7 @@
 const cloudinary = require("cloudinary");
+const dotenv = require("dotenv");
 
-if (process.env.NODE_ENV !== "PRODUCTION") {
-  require("dotenv").config({ path: "backend/config/config.env" });
-}
+dotenv.config({ path: "backend/config/config.env" });
 
 process.on("uncaughtException", (err) => {
   console.log("UNCAUGHT EXCEPTION! Shutting down...");
