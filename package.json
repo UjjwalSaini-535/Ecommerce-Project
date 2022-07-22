@@ -1,6 +1,9 @@
 {
   "name": "e-commerce-website",
   "version": "1.0.0",
+  "engines": {
+    "node": "17.3.0"
+  },
   "description": "",
   "main": "backend/server.js",
   "scripts": {
