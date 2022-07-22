@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const db = process.env.DATABASE.replace("<PASSWORD>", process.env.password);
+const db = process.env.DATABASE.replace("<PASSWORD>", process.env.PASSWORD);
 
 exports.connectToDataBase = () => {
   mongoose.connect(db).then(() => {
