@@ -17,9 +17,9 @@ const { connectToDataBase } = require("./config/database");
 // connecting to data base
 connectToDataBase();
 cloudinary.config({
-  cloud_name: process.env.CLODINARY_NAME,
-  api_key: process.env.CLODINARY_API_KEY,
-  api_secret: process.env.CLODINARY_API_SECRET,
+  cloud_name: process.env.CLOUDINARY_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
 const port = process.env.PORT || 8000;
